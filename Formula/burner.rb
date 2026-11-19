@@ -1,6 +1,6 @@
 class Burner < Formula
   desc "Throwaway Linux VMs on your own hardware"
-  homepage "https://burnervm.dev"
+  homepage "https://github.com/patrickhere/burner"
   url "https://github.com/patrickhere/burner/archive/12a8853001945edee464e073ede55df86f445735.tar.gz"
   version "0.1.1"
   sha256 "a43b04013ada3ae9afdd360649bdcb0be03829fe83055537671546d118e99ee1"

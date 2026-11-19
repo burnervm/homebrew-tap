@@ -5,9 +5,11 @@ homebrew formulas for [burner](https://github.com/patrickhere/burner), throwaway
 ```
 brew install burnervm/tap/burner
 burner setup
-burner run -- 'uname -a'
+burner run -- 'uname -m'
 ```
 
-burner needs linux with kvm, so on a mac it runs inside a [lima](https://lima-vm.io) VM with nested virtualization. `burner setup` makes the VM and installs burner in it, and every other `burner` command runs in there. that needs an M3 or newer with macOS 15 or later.
+on a mac, burner runs VMs itself with libkrun on hypervisor.framework, no linux VM in between. any apple silicon mac, M1 and newer, with macOS 15 or later. the formula builds burner, signs it for hypervisor.framework and pulls in libkrun and e2fsprogs. `burner setup` installs the guest kernel and alpine image it fetched, both pinned by sha256 in this tap.
+
+coming from 0.1.x, which ran burner inside a lima VM: `limactl delete burnervm` removes that VM.
 
 on linux, use the installer instead: `curl -fsSL https://get.burnervm.dev | sh`
